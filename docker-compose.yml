@@ -1,0 +1,19 @@
+docker-compose.yml
+version: '2'
+services:
+  main:
+    container_name: main
+    build: .
+    links:
+      - web
+    volumes_from:
+      - web
+    volumes:
+      - ./artifacts:/home/dz1/boxfuse-sample-java-war-hello/target:rw
+   web:
+    container_name: web
+    image: tomcat
+    volumes:
+      - ./artifacts:/usr/local/tomcat/webapps:rw
+    ports:
+      - "8080:8080"
