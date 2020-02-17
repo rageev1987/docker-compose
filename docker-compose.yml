@@ -4,13 +4,13 @@ services:
     container_name: main
     build: .
     volumes:
-      - artifact:/home/dz1/boxfuse-sample-java-war-hello/target:rw
+      - artifact:/home/dz1/boxfuse-sample-java-war-hello/target
     
   web:
     container_name: web
     image: tomcat
     volumes:
-      - artifact:/usr/local/tomcat/webapps:rw
+      - artifact:/usr/local/tomcat/webapps
     ports:
       - "8080:8080"
 
